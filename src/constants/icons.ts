@@ -22,6 +22,8 @@ export const icons = {
   notification: require("assets/icon/notifications.svg").default,
   refresh_icon: require("assets/icon/refresh.svg").default,
   more: require("assets/icon/more.svg").default,
+  angle_down: require("assets/icon/angle_down.svg").default,
+  angle_up: require("assets/icon/angle_up.svg").default,
 };
 
 export default icons;
