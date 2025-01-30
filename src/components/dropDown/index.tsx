@@ -1,5 +1,5 @@
 import icons from "constants/icons";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface DropdownProps {
   label?: string;
@@ -19,7 +19,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   className = "",
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState<string | null>(null);
+  const [selectedValue, setSelectedValue] = useState<string | null>();
 
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
@@ -43,7 +43,9 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   return (
-    <div className={`flex flex-col gap-2 ${getWidthClass()} ${className}`}>
+    <div
+      className={`flex flex-col gap-2 dropdownShadow rounded-lg ${getWidthClass()} ${className}`}
+    >
       {label && (
         <label className="text-base font-bold tracking-[0.16px] text-black">
           {label}
@@ -51,7 +53,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       )}
       <div className="relative">
         <button
-          className="w-full bg-white border border-[#AAAAAA] rounded-lg py-2 px-4 text-left flex justify-between items-center shadow-sm"
+          className="w-full bg-white border border-[#AAAAAA] rounded-lg h-[45px] px-3 text-left flex justify-between items-center shadow-sm text-base"
           onClick={toggleDropdown}
         >
           {selectedValue
@@ -68,7 +70,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             {options.map((option) => (
               <li
                 key={option.value}
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                className="px-4 py-2 hover:bg-gray-100 cursor-pointer border-b"
                 onClick={() => handleSelect(option.value)}
               >
                 {option.label}

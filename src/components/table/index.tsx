@@ -1,3 +1,4 @@
+import { useState, useMemo } from "react";
 import { useTable } from "hooks";
 import { UseTableProps } from "types";
 import { flexRender } from "@tanstack/react-table";
@@ -8,14 +9,25 @@ const CustomTable = <T,>({
   addRowStyle,
   rowBackgroundColor = "bg-white",
 }: UseTableProps<T>) => {
-  const { table, data } = useTable({
+  const [pageIndex, setPageIndex] = useState(0);
+  const [pageSize, setPageSize] = useState(5);
+
+  const paginatedData = useMemo(() => {
+    const start = pageIndex * pageSize;
+    const end = start + pageSize;
+    return initialData.slice(start, end);
+  }, [initialData, pageIndex, pageSize]);
+
+  const { table } = useTable({
     columns,
-    initialData,
+    initialData: paginatedData,
   });
 
+  const totalPages = Math.ceil(initialData.length / pageSize);
+
   return (
-    <div className="max-w-full border rounded-lg overflow-hidden">
-      <div className={`w-full border rounded-lg`}>
+    <div className="max-w-full border rounded-lg overflow-hidden tableShadow">
+      <div className="w-full border rounded-lg">
         <table className="border-spacing-y-table w-full table-auto">
           <thead>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -51,7 +63,7 @@ const CustomTable = <T,>({
           </thead>
 
           <tbody className={rowBackgroundColor}>
-            {data && data.length > 0 ? (
+            {paginatedData.length > 0 ? (
               table.getRowModel().rows.map((row) => (
                 <tr
                   key={row.id}
@@ -86,6 +98,69 @@ const CustomTable = <T,>({
             )}
           </tbody>
         </table>
+
+        {/* Pagination Controls */}
+        <div className="flex items-center justify-between p-4 bg-[#F4F3FB]">
+          <div className="flex items-center space-x-2">
+            <span className="text-sm">Display rows</span>
+            <select
+              value={pageSize}
+              onChange={(e) => {
+                setPageSize(Number(e.target.value)); // Update page size
+                setPageIndex(0);
+              }}
+              className="border rounded px-2 py-1 outline-none text-sm"
+            >
+              {[5, 10, 20, 50].map((size) => (
+                <option key={size} value={size}>
+                  {size}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={() => setPageIndex((prev) => Math.max(prev - 1, 0))}
+              disabled={pageIndex === 0}
+              className={`px-3 py-1.5 text-sm rounded ${
+                pageIndex === 0
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "bg-[#6C63FF] text-white"
+              }`}
+            >
+              Previous
+            </button>
+
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => setPageIndex(index)}
+                className={`px-3 py-1.5 text-sm rounded ${
+                  pageIndex === index
+                    ? "bg-[#4B0082] text-white"
+                    : "bg-gray-100"
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+
+            <button
+              onClick={() =>
+                setPageIndex((prev) => Math.min(prev + 1, totalPages - 1))
+              }
+              disabled={pageIndex >= totalPages - 1}
+              className={`px-3 py-1.5 text-sm rounded ${
+                pageIndex >= totalPages - 1
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "bg-[#6C63FF] text-white"
+              }`}
+            >
+              Next
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

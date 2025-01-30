@@ -24,6 +24,9 @@ export const icons = {
   more: require("assets/icon/more.svg").default,
   angle_down: require("assets/icon/angle_down.svg").default,
   angle_up: require("assets/icon/angle_up.svg").default,
+  search: require("assets/icon/search.svg").default,
+  total_school: require("assets/icon/totalSchool.svg").default,
+  green_arrow_up: require("assets/icon/greenArrowUp.svg").default,
 };
 
 export default icons;
