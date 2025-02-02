@@ -20,7 +20,7 @@ const Subscriptions = () => {
     <div>
       {" "}
       <div className="flex justify-between items-center">
-        <h1 className="font-semibold text-lg">Schools</h1>
+        <h1 className="font-semibold text-lg">Subscriptions</h1>
         <div className="flex">
           <Dropdown
             options={options}
