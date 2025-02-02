@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nunito-font {
+  font-family: "Nunito", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.sidebarBg {
+  background: linear-gradient(90deg, #4b0081 0%, #9933f9 100%);
+}
+
+.headerShadow {
+  box-shadow: 0px 3px 7px 0px #00000026;
+}
+
+.removeScrollBar::-webkit-scrollbar {
+  display: none;
+}
+
+.cardShadow {
+  box-shadow: 0px 3px 7px 0px #00000040;
+}
+
+.textfieldShadow {
+  box-shadow: 0px 3px 6px 0px #00000040;
+}
+
+.dropdownShadow {
+  box-shadow: 0px 3px 6px 0px #00000040;
+}
+
+.tableShadow {
+  box-shadow: 0px 0px 7px 0px #00000026;
+}
