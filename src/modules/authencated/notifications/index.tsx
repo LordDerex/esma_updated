@@ -33,16 +33,14 @@ const Notification: React.FC = () => {
   ];
 
   return (
-    <>
-      <div>
-        <p className="font-sans font-bold text-[23px]">Notification</p>
-      </div>
-      <div className="max-w-3xl  space-y-4">
+    <div className="flex flex-col gap-3">
+      <h1 className="text-lg font-bold">Notification</h1>
+      <div className="max-w-xl  space-y-4">
         {notifications.map((notif, index) => (
           <NotificationCard key={index} {...notif} />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

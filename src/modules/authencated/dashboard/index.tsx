@@ -1,7 +1,6 @@
 import BarChart from "components/barChart";
 import CustomIcon from "components/customIcon";
 import PieChart from "components/pieChart";
-import DemoTable from "components/table/demo";
 import icons from "constants/icons";
 import React from "react";
 
