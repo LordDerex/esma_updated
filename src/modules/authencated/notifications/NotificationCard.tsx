@@ -26,7 +26,7 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
 
           {/* New condition to show the red dot */}
           {showBadge && (
-            <span className="absolute top-0 right-0 w-3 h-3 bg-red-500 rounded-full border-2 border-white"></span>
+            <span className="absolute top-8 right-0 w-3 h-3 bg-red-500 rounded-full border-2 border-white"></span>
           )}
         </div>
 
