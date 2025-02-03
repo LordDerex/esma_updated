@@ -14,9 +14,9 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
 }) => {
   return (
     <>
-      <div>
+      {/* <div>
         <p>Notification</p>
-      </div>
+      </div> */}
       <div className="flex items-start space-x-4 p-4 bg-[#F4F3FB] shadow-lg rounded-2xl border border-gray-200">
         <img
           src={imageSrc}
@@ -27,8 +27,10 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
           <h4 className="font-bold text-black text-[23px] font-sans">
             {title}
           </h4>
-          <p className="text-sm text-[#AAAAAA] font-sans">{message}</p>
-          <span className="text-xs text-[#AAAAAA] font-sans">{timestamp}</span>
+          <p className="text-[19px] text-[#AAAAAA] font-sans">{message}</p>
+          <span className="text-[19px] text-[#AAAAAA] font-sans">
+            {timestamp}
+          </span>
         </div>
       </div>
     </>
