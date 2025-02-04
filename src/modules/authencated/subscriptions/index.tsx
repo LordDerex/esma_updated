@@ -64,8 +64,6 @@ const Subscriptions = () => {
           />
         </div>
         {NavConstants.map((data, index) => {
-          console.log(index);
-
           return (
             <Dropdown
               key={index}
