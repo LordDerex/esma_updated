@@ -18,19 +18,16 @@ const Subscriptions = () => {
 
   return (
     <div>
-      {" "}
       <div className="flex justify-between items-center">
         <h1 className="font-semibold text-lg">Subscriptions</h1>
-        <div className="flex">
-          <Dropdown
-            options={options}
-            placeholder="Export as"
-            onSelect={handleSelect}
-            width="small"
-          />
-        </div>
+        <Dropdown
+          options={options}
+          placeholder="Export as"
+          onSelect={handleSelect}
+          width="small"
+        />
       </div>
-      <div className="md:my-5 flex justify-start items-center space-x-5">
+      <div className="md:my-5 flex justify-start items-center space-x-3">
         <Card
           icon={icons.total_school}
           label="Total Subscriptions"
@@ -56,16 +53,15 @@ const Subscriptions = () => {
           size={9}
         />
       </div>
+
       <div className="flex gap-5 my-0 md:my-4">
-        <div className="w-[60%]">
+        <div className="w-[45%]">
           <TextField
             placeholder="Search school name , school admin"
             type="search"
           />
         </div>
         {NavConstants.map((data, index) => {
-          console.log(index);
-
           return (
             <Dropdown
               key={index}
