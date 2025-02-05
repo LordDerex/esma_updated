@@ -34,7 +34,6 @@ const Notification: React.FC = () => {
   ];
 
   return (
-<<<<<<< HEAD
     <>
       <div>
         <p className="font-sans font-bold text-[23px] pb-[20px]">
@@ -42,16 +41,11 @@ const Notification: React.FC = () => {
         </p>
       </div>
       <div className="max-w-4xl space-y-4">
-=======
-    <div className="flex flex-col gap-3">
-      <h1 className="text-lg font-bold">Notification</h1>
-      <div className="max-w-xl  space-y-4">
->>>>>>> 5e8705610bdc7664919c494dc6fff02f8f907023
         {notifications.map((notif, index) => (
           <NotificationCard key={index} {...notif} />
         ))}
       </div>
-    </div>
+    </>
   );
 };
 
