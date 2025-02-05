@@ -4,9 +4,9 @@ import { sidebar } from "constants/sidebar";
 
 const SideBar = () => {
   return (
-    <div className="h-dvh py-8 bg-[#F4F3FB] text-black overflow-y-hidden flex flex-col justify-start gap-5">
+    <div className="h-dvh w-[230px] py-8 bg-[#F4F3FB] text-black overflow-y-hidden flex flex-col justify-start gap-5">
       <div className="px-4 flex items-center">
-        <img src={images.logo} alt="logo" />
+        <img src={images.logo} alt="logo" className="w-[150px]" />
       </div>
 
       <div className="px-[16px] h-fit mx-auto flex flex-col gap-3 my-2 w-full">
