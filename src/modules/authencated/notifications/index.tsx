@@ -36,9 +36,7 @@ const Notification: React.FC = () => {
   return (
     <>
       <div>
-        <p className="font-sans font-bold text-[23px] pb-[20px]">
-          Notification
-        </p>
+        <p className="font-sans font-bold text-lg pb-[20px]">Notification</p>
       </div>
       <div className="max-w-4xl space-y-4">
         {notifications.map((notif, index) => (
