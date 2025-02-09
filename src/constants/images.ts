@@ -7,6 +7,7 @@ const images = {
     .default,
   glaImg: require("assets/image/gla.svg").default,
   glaPersonImg: require("assets/image/glaPerson.svg").default,
+  blogImg: require("assets/image/blogImg.svg").default,
 };
 
 export default images;

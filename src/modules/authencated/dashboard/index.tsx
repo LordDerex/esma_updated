@@ -8,7 +8,7 @@ const Dashboard = () => {
   return (
     <div className="flex flex-col justify-start items-start gap-3">
       <div className="flex justify-between items-center w-full">
-        <h1 className="text-lg font-bold">Welcome back, Godwin</h1>
+        <h1 className="text-lg font-semibold">Welcome back, Godwin</h1>
 
         <button className="bg-[#F4F3FB] rounded-xl py-2 px-3 flex justify-start items-center gap-2">
           <CustomIcon SvgIcon={icons.refresh_icon} size={18} /> Refresh
