@@ -15,6 +15,33 @@ const Schools = () => {
     console.log("Selected value:", value);
   };
 
+  const cardDetails = [
+    {
+      icon: icons.total_school,
+      label: "Total school sign up",
+      value: "2003",
+      duration: "more than last month",
+      durationPercentage: "21%",
+      textIcon: icons.green_arrow_up,
+    },
+    {
+      icon: icons.total_school,
+      label: "Active Schools",
+      value: "2003",
+      duration: "more than last month",
+      durationPercentage: "21%",
+      textIcon: icons.green_arrow_up,
+    },
+    {
+      icon: icons.total_school,
+      label: "Inactive Schools",
+      value: "2003",
+      duration: "more than last month",
+      durationPercentage: "21%",
+      textIcon: icons.green_arrow_up,
+    },
+  ];
+
   return (
     <div className="flex flex-col gap-6">
       <div className="flex justify-between items-center">
@@ -32,34 +59,19 @@ const Schools = () => {
       </div>
 
       <div className="flex justify-start items-center space-x-4">
-        <Card
-          icon={icons.total_school}
-          label="Total school sign up"
-          value="2003"
-          duration="more than last month"
-          durationPercentage="21%"
-          textIcon={icons.green_arrow_up}
-          size={9}
-        />
-        <Card
-          icon={icons.total_school}
-          label="Active Schools"
-          value="2003"
-          duration="more than last month"
-          durationPercentage="21%"
-          textIcon={icons.green_arrow_up}
-          size={9}
-        />
-        <Card
-          icon={icons.total_school}
-          label="Inactive Schools"
-          value="2003"
-          duration="more than last month"
-          durationPercentage="21%"
-          textIcon={icons.green_arrow_up}
-          size={9}
-          smallText="30days ago"
-        />
+        {cardDetails.map((card, index) => (
+          <Card
+            key={index}
+            icon={card.icon}
+            label={card.label}
+            value={card.value}
+            duration={card.duration}
+            durationPercentage={card.durationPercentage}
+            textIcon={card.textIcon}
+            size={index === 2 ? 9 : 12}
+            smallText={index === 2 ? "30 days ago" : ""}
+          />
+        ))}
       </div>
 
       <div className="flex gap-5">

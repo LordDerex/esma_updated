@@ -1,5 +1,5 @@
 import icons from "constants/icons";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface DropdownProps {
   label?: string;

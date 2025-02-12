@@ -23,7 +23,7 @@ export default function Card({
   duration,
 }: Props) {
   return (
-    <div className="border cardShadow border-[#DFDFDF] h-24 p-[10px_20px] rounded-lg bg-[#F4F3FB] flex justify-center items-center gap-4">
+    <div className="border cardShadow border-[#DFDFDF] h-24 p-[10px_15px] rounded-lg bg-[#F4F3FB] flex justify-center items-center gap-4">
       <img
         src={icon}
         alt={label}
